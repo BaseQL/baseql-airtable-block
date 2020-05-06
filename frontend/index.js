@@ -4,8 +4,9 @@ import {
   useBase,
   Box
 } from '@airtable/blocks/ui';
-import secrets from './secrets'
 import Setup from './setup';
+
+const BACKEND_HOST = 'https://38988ecf.ngrok.io'
 
 function BaseQL() {
   const base = useBase();
@@ -37,7 +38,7 @@ function BaseQL() {
       body: JSON.stringify(meta)
     };
 
-    return fetch(`${secrets.BACKEND_HOST}/api/airtable/meta/${base.id}`, requestOptions)
+    return fetch(`${BACKEND_HOST}/api/airtable/meta/${base.id}`, requestOptions)
         .then(response => response.json())
         .then(data => { console.log(data) });
   })();
@@ -46,12 +47,12 @@ function BaseQL() {
     <Box border="none" backgroundColor="white" padding="20px" overflow="hidden">
       <div align="center">
         <img
-          src={`${secrets.BACKEND_HOST}/images/baseql_logo_h_alpha.png`}
+          src={`${BACKEND_HOST}/images/baseql_logo_h_alpha.png`}
           alt="baseql logo"
           width="128"
         />
       </div>
-      <Setup base={base} />
+      <Setup base={base} host={BACKEND_HOST} />
     </Box>
   );
 }

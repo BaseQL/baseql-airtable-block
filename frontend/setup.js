@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import useLocalStorage from './use-local-storage';
 import {
   Heading,
   Link,
@@ -6,10 +7,9 @@ import {
   Input,
   Button,
 } from "@airtable/blocks/ui";
-import secrets from './secrets'
 
-const Setup = ({ base }) => {
-  const [apiKey, setAPIKey] = useState("");
+const Setup = ({ base, host }) => {
+  const [apiKey, setAPIKey] = useLocalStorage('apiKey', '');
 
   return (
     <>
@@ -40,10 +40,11 @@ const Setup = ({ base }) => {
           </Link>
         </div>
       </FormField>
+      <span>*API key stored on Airtable Block, not on BaseQL servers</span><br /><br />
       <div align="center">
         <Button
           onClick={() =>
-            window.open(`${secrets.BACKEND_HOST}/api/airtable/graphql/${base.id}?key=${apiKey}`, "_blank")
+            window.open(`${host}/api/airtable/graphql/${base.id}?key=${apiKey}`, "_blank")
           }
           variant="primary"
           size="large"

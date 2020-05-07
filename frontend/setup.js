@@ -15,7 +15,6 @@ const Setup = ({ base, host }) => {
 
   return (
     <>
-      <Heading>Setup</Heading>
       <FormField label="Base:">
         <Input value={base.name} size="large" enabled="false" />
       </FormField>

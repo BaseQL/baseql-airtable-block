@@ -1,17 +1,13 @@
-import React from "react";
-import useLocalStorage from './use-local-storage';
-import {
-  Heading,
-  Link,
-  FormField,
-  Input,
-  Button,
-} from "@airtable/blocks/ui"
+import React, { useState } from "react";
+import useLocalStorage from "./use-local-storage";
+import { Heading, Link, FormField, Input, Button } from "@airtable/blocks/ui";
 
-const GRAPHQL_ENDPOINT = '/airtable/graphql';
+const GRAPHQL_ENDPOINT = "/airtable/graphql";
 
 const Setup = ({ base, host }) => {
-  const [apiKey, setAPIKey] = useLocalStorage('apiKey', '');
+  const [apiKey, setAPIKey] = useLocalStorage("apiKey", "");
+  const [inputType, setInputType] = useState("password");
+  const [iconType, setIconType] = useState("hide");
 
   return (
     <>
@@ -19,11 +15,24 @@ const Setup = ({ base, host }) => {
         <Input value={base.name} size="large" enabled="false" />
       </FormField>
       <FormField label="API Key:">
-        <Input
-          value={apiKey}
-          size="large"
-          onChange={(e) => setAPIKey(e.target.value)}
-        />
+        <div style={{ display: "flex" }}>
+          <Input
+            type={inputType}
+            value={apiKey}
+            size="large"
+            onChange={(e) => setAPIKey(e.target.value)}
+          />
+          <Button
+            onClick={() => {
+              setInputType(inputType === "password" ? "text" : "password");
+              setIconType(inputType === "password" ? "hide1" : "hide");
+            }}
+            size="large"
+            icon={iconType}
+            aria-label="Edit"
+            style={{ marginLeft: "8px" }}
+          />
+        </div>
         <div
           style={{
             textAlign: "right",
@@ -41,11 +50,16 @@ const Setup = ({ base, host }) => {
           </Link>
         </div>
       </FormField>
-      <span>*API key stored on Airtable Block, not on BaseQL servers</span><br /><br />
+      <span>*API key stored on Airtable Block, not on BaseQL servers</span>
+      <br />
+      <br />
       <div align="center">
         <Button
           onClick={() =>
-            window.open(`${host}${GRAPHQL_ENDPOINT}/${base.id}?key=${apiKey}`, "_blank")
+            window.open(
+              `${host}${GRAPHQL_ENDPOINT}/${base.id}?key=${apiKey}`,
+              "_blank"
+            )
           }
           variant="primary"
           size="large"

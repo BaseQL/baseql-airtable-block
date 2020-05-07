@@ -23,8 +23,6 @@ const sendMeta = (base) => {
       })),
     })),
   };
-  console.log(meta);
-  window.localStorage.setItem("meta", JSON.stringify(meta));
 
   const requestOptions = {
     method: "POST",

@@ -1,13 +1,23 @@
 import React, { useState } from "react";
-import useLocalStorage from "./use-local-storage";
-import { Heading, Link, FormField, Input, Button } from "@airtable/blocks/ui";
+import {
+  useGlobalConfig,
+  Link,
+  FormField,
+  Input,
+  Button,
+} from "@airtable/blocks/ui";
 
 const GRAPHQL_ENDPOINT = "/airtable/graphql";
 
 const Setup = ({ base, host }) => {
-  const [apiKey, setAPIKey] = useLocalStorage("apiKey", "");
+  const globalConfig = useGlobalConfig();
+  const [apiKey, setAPIKey] = useState(globalConfig.get("apiKey") || "");
   const [inputType, setInputType] = useState("password");
   const [iconType, setIconType] = useState("hide");
+  const persistApiKey = (newKey) => {
+    setAPIKey(newKey);
+    globalConfig.setAsync("apiKey", newKey).then(() => setAPIKey(newKey));
+  };
 
   return (
     <>
@@ -20,7 +30,7 @@ const Setup = ({ base, host }) => {
             type={inputType}
             value={apiKey}
             size="large"
-            onChange={(e) => setAPIKey(e.target.value)}
+            onChange={(e) => persistApiKey(e.target.value)}
           />
           <Button
             onClick={() => {
@@ -42,7 +52,7 @@ const Setup = ({ base, host }) => {
           }}
         >
           <Link
-            href={`https://airtable.com/${base.id}/api/docs`}
+            href={`https://airtable.com/account`}
             target="_blank"
             size="small"
           >

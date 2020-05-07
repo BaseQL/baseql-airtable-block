@@ -6,7 +6,9 @@ import {
   FormField,
   Input,
   Button,
-} from "@airtable/blocks/ui";
+} from "@airtable/blocks/ui"
+
+const GRAPHQL_ENDPOINT = '/airtable/graphql';
 
 const Setup = ({ base, host }) => {
   const [apiKey, setAPIKey] = useLocalStorage('apiKey', '');
@@ -44,7 +46,7 @@ const Setup = ({ base, host }) => {
       <div align="center">
         <Button
           onClick={() =>
-            window.open(`${host}/api/airtable/graphql/${base.id}?key=${apiKey}`, "_blank")
+            window.open(`${host}${GRAPHQL_ENDPOINT}/${base.id}?key=${apiKey}`, "_blank")
           }
           variant="primary"
           size="large"

@@ -11,6 +11,8 @@
         "eslint-plugin-react-hooks": "^2.5.0"
     },
     "scripts": {
-        "lint": "eslint frontend"
+        "lint": "eslint frontend",
+        "dev": "npx block run",
+        "release": "npx block release"
     }
 }

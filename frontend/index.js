@@ -6,7 +6,8 @@ import {
 } from '@airtable/blocks/ui';
 import Setup from './setup';
 
-const BACKEND_HOST = 'https://38988ecf.ngrok.io'
+const BACKEND_HOST = 'https://api.baseql.com'
+const META_ENDPOINT = '/airtable/meta';
 
 function BaseQL() {
   const base = useBase();
@@ -38,7 +39,7 @@ function BaseQL() {
       body: JSON.stringify(meta)
     };
 
-    return fetch(`${BACKEND_HOST}/api/airtable/meta/${base.id}`, requestOptions)
+    return fetch(`${BACKEND_HOST}${META_ENDPOINT}/${base.id}`, requestOptions)
         .then(response => response.json())
         .then(data => { console.log(data) });
   })();

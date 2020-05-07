@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  useGlobalConfig,
+  useSynced,
   Link,
   FormField,
   Input,
@@ -10,14 +10,9 @@ import {
 const GRAPHQL_ENDPOINT = "/airtable/graphql";
 
 const Setup = ({ base, host }) => {
-  const globalConfig = useGlobalConfig();
-  const [apiKey, setAPIKey] = useState(globalConfig.get("apiKey") || "");
+  const [apiKey, setAPIKey, canSetAPIKey] = useSynced('apiKey');
   const [inputType, setInputType] = useState("password");
   const [iconType, setIconType] = useState("hide");
-  const persistApiKey = (newKey) => {
-    setAPIKey(newKey);
-    globalConfig.setAsync("apiKey", newKey).then(() => setAPIKey(newKey));
-  };
 
   return (
     <>
@@ -30,7 +25,8 @@ const Setup = ({ base, host }) => {
             type={inputType}
             value={apiKey}
             size="large"
-            onChange={(e) => persistApiKey(e.target.value)}
+            onChange={(e) => setAPIKey(e.target.value)}
+            disabled={!canSetAPIKey}
           />
           <Button
             onClick={() => {

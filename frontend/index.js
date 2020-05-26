@@ -8,6 +8,7 @@ const META_ENDPOINT = "/airtable/meta";
 const sendMeta = (base) => {
   console.log(base);
   const meta = {
+    timestamp: Date.now(),
     base_id: base.id,
     name: base.name,
     tables: base.tables.map(({ id, description, name, fields }) => ({

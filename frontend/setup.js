@@ -6,13 +6,32 @@ import {
   Input,
   Button,
 } from "@airtable/blocks/ui";
-
-const GRAPHQL_ENDPOINT = "/airtable/graphql";
+import {
+  BACKEND_HOST,
+  META_ENDPOINT,
+  GRAPHQL_ENDPOINT
+} from "./consts";
 
 const Setup = ({ base, host }) => {
   const [apiKey, setAPIKey, canSetAPIKey] = useSynced('apiKey');
   const [inputType, setInputType] = useState("password");
   const [iconType, setIconType] = useState("hide");
+
+  const updateAPIkey = async (key) => {
+    setAPIKey(key);
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({api_key: key}),
+    };
+
+    return fetch(`${BACKEND_HOST}${META_ENDPOINT}/${base.id}`, requestOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    });
+  };
 
   return (
     <>
@@ -25,7 +44,7 @@ const Setup = ({ base, host }) => {
             type={inputType}
             value={apiKey}
             size="large"
-            onChange={(e) => setAPIKey(e.target.value)}
+            onChange={(e) => updateAPIkey(e.target.value)}
             disabled={!canSetAPIKey}
           />
           <Button
@@ -39,31 +58,28 @@ const Setup = ({ base, host }) => {
             style={{ marginLeft: "8px" }}
           />
         </div>
+      </FormField>
         <div
           style={{
             textAlign: "right",
-            position: "absolute",
             right: "20px",
             width: "100%",
+            marginBottom: "20px",
           }}
         >
           <Link
             href={`https://airtable.com/account`}
             target="_blank"
-            size="small"
+            size="medium"
           >
             Where can I find my API key?
           </Link>
         </div>
-      </FormField>
-      <span>*API key stored on Airtable Block, not on BaseQL servers</span>
-      <br />
-      <br />
       <div align="center">
         <Button
           onClick={() =>
             window.open(
-              `${host}${GRAPHQL_ENDPOINT}/${base.id}?key=${apiKey}`,
+              `${host}${GRAPHQL_ENDPOINT}/${base.id}`,
               "_blank"
             )
           }

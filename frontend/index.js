@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import { initializeBlock, useBase, Box } from "@airtable/blocks/ui";
 import Setup from "./setup";
-
-const BACKEND_HOST = "https://api.baseql.com";
-const META_ENDPOINT = "/airtable/meta";
+import { BACKEND_HOST, META_ENDPOINT } from "./consts";
 
 const sendMeta = (base) => {
-  console.log(base);
   const meta = {
     timestamp: Date.now(),
     base_id: base.id,

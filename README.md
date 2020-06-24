@@ -2,7 +2,15 @@
 
 ## Instructions
 
-In order to install the Block on your Airtable:
+### Prerequisites
+
+In order to use Custom Blocks you need to [Sign Up for the Beta](https://airtable.com/shrEvq5IlQqYxWkaS) which applies for individual accounts, not organization's.
+
+This might change after September 2020 as it becomes part of Pro plan and maybe a Developer plan is introduced: https://community.airtable.com/t/build-a-custom-block/30288/6
+
+### Install
+
+To install the BaseQL Block on your Airtable base:
 
 1. Clone or download Zip source from github:
   - [github.com/BaseQL/baseql-airtable-block/archive/master.zip](https://github.com/BaseQL/baseql-airtable-block/archive/master.zip)
@@ -12,7 +20,7 @@ In order to install the Block on your Airtable:
   - Install the Blocks CLI globally: `npm install -g @airtable/blocks-cli`
   - Replace `.block/remote.json` values with your own app/blk IDs
   - Verify it works locally with `block run`
-4. Publish `block release`
+4. Build & deploy to Airtable servers using: `block release`
 
 ### Run in multiple bases
 

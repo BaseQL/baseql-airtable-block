@@ -8,6 +8,8 @@ In order to use Custom Blocks you need to [Sign Up for the Beta](https://airtabl
 
 This might change after September 2020 as it becomes part of Pro plan and maybe a Developer plan is introduced: https://community.airtable.com/t/build-a-custom-block/30288/6
 
+Also, you need to [install Node.js](https://nodejs.org/en/download/) if you haven't already.
+
 ### Install
 
 To install the BaseQL Block on your Airtable base:

@@ -20,6 +20,7 @@ To install the BaseQL Block on your Airtable base:
   - Install the Blocks CLI globally: `npm install -g @airtable/blocks-cli`
   - Instead of running the `block init` command, navigate to the `baseql-block` directory you just created and replace the values from `.block/remote.json` with your own app/blk IDs
     - <img width="645" alt="Screen Shot 2020-06-23 at 21 40 09" src="https://user-images.githubusercontent.com/119117/85492164-5f7f7100-b59a-11ea-8b66-22a10e4dd096.png">
+  - Install dependencies with `npm install`
   - Verify it works locally with `block run`
 4. Build & deploy to Airtable servers using: `block release`
 

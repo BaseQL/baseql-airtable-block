@@ -24,6 +24,12 @@ To install the BaseQL Block on your Airtable base:
   - Verify it works locally with `block run`
 4. Build & deploy to Airtable servers using: `block release`
 
+#### Video Walkthrough
+
+[<img width="320" alt="Screen Shot 2020-06-23 at 22 36 51" src="https://user-images.githubusercontent.com/119117/85496582-2a771c80-b5a2-11ea-8362-68931ab2369a.png">](https://youtu.be/edb68AsfJXA)
+
+https://youtu.be/edb68AsfJXA
+
 ### Run in multiple bases
 
 Follow instructions at: https://airtable.com/developers/blocks/guides/run-in-multiple-bases

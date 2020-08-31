@@ -10,6 +10,7 @@ import {
 } from "@airtable/blocks/ui";
 import {
   BACKEND_HOST,
+  APP_HOST,
   META_ENDPOINT
 } from "./consts";
 
@@ -87,14 +88,27 @@ const Setup = ({ base, onLaunch }) => {
             Where can I find my API key?
           </Link>
         </div>
-      <div align="center">
+      <div style={{display: 'flex', justifyContent: 'center'}}>
         <Button
           onClick={() => onLaunch()}
+          variant="default"
+          size="large"
+        >
+          GraphQL Explorer
+        </Button>
+        <Button
+          onClick={() =>
+            window.open(
+              `${APP_HOST}/airtable/${base.id}`,
+              "_blank"
+            )
+          }
           variant="primary"
           size="large"
           disabled={!apiKey}
+          style={{ marginLeft: "8px" }}
         >
-          🚀 Launch GraphQL
+          🚀 Open in BaseQL
         </Button>
       </div>
       <div style={{marginBottom: "20px", marginTop: "30px", textAlign: "center"}}>

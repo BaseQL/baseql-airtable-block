@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
-import { initializeBlock, useBase, Box } from "@airtable/blocks/ui";
+import React, { useState, useEffect } from "react";
+import { initializeBlock, useBase, useSettingsButton, Box } from "@airtable/blocks/ui";
+import {globalConfig} from '@airtable/blocks';
+import {} from '@airtable/blocks/ui';
 import Setup from "./setup";
+import EmbedExplorer from "./embedexplorer";
 import { BACKEND_HOST, META_ENDPOINT } from "./consts";
 
 const sendMeta = (base) => {
@@ -37,6 +40,8 @@ const sendMeta = (base) => {
 
 function BaseQL() {
   const base = useBase();
+  const apiKey = globalConfig.get('apiKey');
+  const [isShowingSettings, setIsShowingSettings] = useState(!apiKey);
 
   useEffect(() => {
     sendMeta(base);
@@ -48,16 +53,21 @@ function BaseQL() {
     );
   }, []);
 
+  useSettingsButton(function() {
+    setIsShowingSettings(!isShowingSettings);
+  });
+
   return (
-    <Box border="none" backgroundColor="white" padding="20px" overflow="hidden">
+    <Box border="none" backgroundColor="white" padding="0" overflow="hidden" style={{ height: '100vh', width: '100vw' }} >
       <div align="center">
         <img
           src={`${BACKEND_HOST}/images/baseql_logo_h_alpha.png`}
           alt="baseql logo"
           width="128"
+          style={{margin: "20px"}}
         />
       </div>
-      <Setup base={base} host={BACKEND_HOST} />
+      {isShowingSettings && <Setup base={base} /> || <EmbedExplorer base={base} />}
     </Box>
   );
 }

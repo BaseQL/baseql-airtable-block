@@ -67,7 +67,9 @@ function BaseQL() {
           style={{margin: "20px"}}
         />
       </div>
-      {isShowingSettings && <Setup base={base} /> || <EmbedExplorer base={base} />}
+      {isShowingSettings
+        && <Setup base={base} onLaunch={() => setIsShowingSettings(!isShowingSettings)} /> 
+        || <EmbedExplorer base={base} />}
     </Box>
   );
 }

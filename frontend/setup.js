@@ -8,11 +8,10 @@ import {
 } from "@airtable/blocks/ui";
 import {
   BACKEND_HOST,
-  META_ENDPOINT,
-  GRAPHQL_ENDPOINT
+  META_ENDPOINT
 } from "./consts";
 
-const Setup = ({ base }) => {
+const Setup = ({ base, onLaunch }) => {
   const [apiKey, setAPIKey, canSetAPIKey] = useSynced('apiKey');
   const [inputType, setInputType] = useState("password");
   const [iconType, setIconType] = useState("hide");
@@ -34,7 +33,7 @@ const Setup = ({ base }) => {
   };
 
   return (
-    <>
+    <div style={{margin: "10px"}}>
       <FormField label="Base:">
         <Input value={base.name} size="large" enabled="false" />
       </FormField>
@@ -77,12 +76,7 @@ const Setup = ({ base }) => {
         </div>
       <div align="center">
         <Button
-          onClick={() =>
-            window.open(
-              `${BACKEND_HOST}${GRAPHQL_ENDPOINT}/${base.id}`,
-              "_blank"
-            )
-          }
+          onClick={() => onLaunch()}
           variant="primary"
           size="large"
           disabled={!apiKey}
@@ -90,7 +84,7 @@ const Setup = ({ base }) => {
           🚀 Launch GraphQL
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 

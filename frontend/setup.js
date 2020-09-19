@@ -12,7 +12,7 @@ import {
   GRAPHQL_ENDPOINT
 } from "./consts";
 
-const Setup = ({ base, host }) => {
+const Setup = ({ base }) => {
   const [apiKey, setAPIKey, canSetAPIKey] = useSynced('apiKey');
   const [inputType, setInputType] = useState("password");
   const [iconType, setIconType] = useState("hide");
@@ -79,7 +79,7 @@ const Setup = ({ base, host }) => {
         <Button
           onClick={() =>
             window.open(
-              `${host}${GRAPHQL_ENDPOINT}/${base.id}`,
+              `${BACKEND_HOST}${GRAPHQL_ENDPOINT}/${base.id}`,
               "_blank"
             )
           }

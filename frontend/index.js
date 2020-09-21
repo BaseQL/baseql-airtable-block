@@ -64,7 +64,7 @@ function BaseQL() {
           src={`${BACKEND_HOST}/images/baseql_logo_h_alpha.png`}
           alt="baseql logo"
           width="128"
-          style={{margin: "20px"}}
+          style={{margin: "20px 0 5px"}}
         />
       </div>
       {isShowingSettings

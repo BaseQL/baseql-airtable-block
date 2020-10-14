@@ -84,6 +84,17 @@ const Setup = ({ base, onLaunch }) => {
           🚀 Launch GraphQL
         </Button>
       </div>
+      <div style={{marginBottom: "20px", marginTop: "30px", textAlign: "center"}}>
+        <a href="https://www.google.com/url?q=https%3A%2F%2Fwww.generateprivacypolicy.com%2Flive.php%3Ftoken%3DilnPOc9KxTyb2x5NPC19INMUFLd8oZd8&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGPVMt8Z2gC43ssuG4Vce11gmyhsw" 
+           target="_blank" rel="noopener noreferrer">
+             Privacy Policy
+        </a>
+        &nbsp;|&nbsp;
+        <a href="https://www.baseql.com/terms-of-use" 
+           target="_blank" rel="noopener noreferrer">
+             Terms of Use
+        </a>
+      </div>
     </div>
   );
 };

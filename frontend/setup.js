@@ -5,6 +5,7 @@ import {
   FormField,
   Input,
   Button,
+  Heading,
 } from "@airtable/blocks/ui";
 import {
   BACKEND_HOST,
@@ -34,9 +35,20 @@ const Setup = ({ base, onLaunch }) => {
 
   return (
     <div style={{margin: "10px"}}>
-      <FormField label="Base:">
+      <Heading 
+        size="small" 
+        textColor="light"
+        style={{
+          borderBottom: "1px solid lightgray",
+          paddingBottom: "4px",
+          marginBottom: "8px"
+        }}
+      >
+          Settings
+      </Heading>
+      {/* <FormField label="Base:">
         <Input value={base.name} size="large" enabled="false" />
-      </FormField>
+      </FormField> */}
       <FormField label="API Key:">
         <div style={{ display: "flex" }}>
           <Input

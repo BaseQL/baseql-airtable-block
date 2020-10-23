@@ -6,6 +6,7 @@ import {
   Input,
   Button,
   Heading,
+  TextButton,
 } from "@airtable/blocks/ui";
 import {
   BACKEND_HOST,
@@ -41,7 +42,7 @@ const Setup = ({ base, onLaunch }) => {
         style={{
           borderBottom: "1px solid lightgray",
           paddingBottom: "4px",
-          marginBottom: "8px"
+          marginBottom: "16px"
         }}
       >
           Settings
@@ -95,6 +96,27 @@ const Setup = ({ base, onLaunch }) => {
         >
           🚀 Launch GraphQL
         </Button>
+      </div>
+      <div style={{marginBottom: "20px", marginTop: "30px", textAlign: "center"}}>
+        <TextButton icon="help">
+          <Link
+            href={`mailto:support@baseql.com`}
+            target="_blank"
+            size="medium"
+          >
+            support@baseql.com
+          </Link>
+        </TextButton>
+        &nbsp;&nbsp;&nbsp;
+        <TextButton icon="twitter">
+          <Link
+            href={`https://twitter.com/baseql`}
+            target="_blank"
+            size="medium"
+          >
+            @BaseQL
+          </Link>
+        </TextButton>
       </div>
       <div style={{marginBottom: "20px", marginTop: "30px", textAlign: "center"}}>
         <a href="https://www.google.com/url?q=https%3A%2F%2Fwww.generateprivacypolicy.com%2Flive.php%3Ftoken%3DilnPOc9KxTyb2x5NPC19INMUFLd8oZd8&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGPVMt8Z2gC43ssuG4Vce11gmyhsw" 

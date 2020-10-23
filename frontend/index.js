@@ -59,14 +59,6 @@ function BaseQL() {
 
   return (
     <Box border="none" backgroundColor="white" padding="0" overflow="hidden" style={{ height: '100vh', width: '100vw' }} >
-      <div align="center">
-        <img
-          src={`${BACKEND_HOST}/images/baseql_logo_h_alpha.png`}
-          alt="baseql logo"
-          width="128"
-          style={{margin: "20px 0 5px"}}
-        />
-      </div>
       {isShowingSettings
         && <Setup base={base} onLaunch={() => setIsShowingSettings(!isShowingSettings)} /> 
         || <EmbedExplorer base={base} />}

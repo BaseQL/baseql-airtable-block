@@ -12,24 +12,39 @@ const EmbedExplorer = ({ base }) => {
     viewport.enterFullscreenIfPossible();
   }, []);
 
-  return <>
+  return <div align="center">
     <CopyToClipboard
       text={`${BACKEND_HOST}${GRAPHQL_ENDPOINT}/${base.id}`} 
-      onCopy={() => setCopied(true)}>
+      onCopy={() => setCopied(!copied)}>
       <pre align="center">
-        GraphQL API URL:&nbsp;
+        &nbsp;API URL:&nbsp;
         <code style={{backgroundColor: '#eee', padding: '4px', cursor: 'pointer'}}>
-          {`${BACKEND_HOST}${GRAPHQL_ENDPOINT}/${base.id}`}
+          {`${BACKEND_HOST.replace(/^https?:\/\//,'')}${GRAPHQL_ENDPOINT}/${base.id}`}
         </code>
-        <span style={{color: copied ? 'red' : 'white'}}> Copied to clipboard!</span>
+        <span style={{color: 'red', display: copied ? 'block' : 'none'}}> Copied to clipboard!</span>
       </pre>
     </CopyToClipboard>
-    <iframe 
-      src={`${BACKEND_HOST}${GRAPHQL_ENDPOINT}/${base.id}`} 
-      width="100%"
-      style={{border: "none", height: '100vh', width: '100vw'}}
-    />
-  </>
+    <div>
+      <div style={{
+        position: "absolute",
+        height: "48px", 
+        background: "linear-gradient(#f7f7f7, #e2e2e2)",
+        borderBottom: "1px solid #d0d0d0"
+      }}>
+        <img
+          src={`${BACKEND_HOST}/images/baseql_logo_h_alpha.png`}
+          alt="baseql logo"
+          width="108"
+          style={{padding: "12px 0 0 12px"}}
+        />
+      </div>
+      <iframe 
+        src={`${BACKEND_HOST}${GRAPHQL_ENDPOINT}/${base.id}`} 
+        width="100%"
+        style={{border: "none", height: '100vh', width: '100vw'}}
+      />
+    </div>
+  </div>
 }
 
 export default EmbedExplorer;

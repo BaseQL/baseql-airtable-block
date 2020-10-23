@@ -5,25 +5,32 @@ import {
   BACKEND_HOST,
   GRAPHQL_ENDPOINT
 } from "./consts";
+import { Tooltip, Input, Button } from "@airtable/blocks/ui";
 
 const EmbedExplorer = ({ base }) => {
-  const [copied, setCopied] = useState(false);
   useEffect(() => {
     viewport.enterFullscreenIfPossible();
   }, []);
 
   return <div align="center">
-    <CopyToClipboard
-      text={`${BACKEND_HOST}${GRAPHQL_ENDPOINT}/${base.id}`} 
-      onCopy={() => setCopied(!copied)}>
-      <pre align="center">
-        &nbsp;API URL:&nbsp;
-        <code style={{backgroundColor: '#eee', padding: '4px', cursor: 'pointer'}}>
-          {`${BACKEND_HOST.replace(/^https?:\/\//,'')}${GRAPHQL_ENDPOINT}/${base.id}`}
-        </code>
-        <span style={{color: 'red', display: copied ? 'block' : 'none'}}> Copied to clipboard!</span>
-      </pre>
-    </CopyToClipboard>
+    <Tooltip
+      content="Copy API URL to Clipboard"
+      placementX={Tooltip.placements.CENTER}
+      placementY={Tooltip.placements.TOP}
+      shouldHideTooltipOnClick={true}
+    >
+      <CopyToClipboard text={`${BACKEND_HOST}${GRAPHQL_ENDPOINT}/${base.id}`}>
+        <div style={{ display: "flex" }}>
+          <Input
+            id="api-url"
+            type="url"
+            value={`${BACKEND_HOST}${GRAPHQL_ENDPOINT}/${base.id}`}
+            style={{cursor: 'pointer'}}
+          />
+          <Button icon="clipboard" aria-label="Copy API URL to Clipboard" />
+        </div>
+      </CopyToClipboard>
+    </Tooltip>
     <div>
       <div style={{
         position: "absolute",

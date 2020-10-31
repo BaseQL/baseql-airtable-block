@@ -40,8 +40,7 @@ const sendMeta = (base) => {
 
 function BaseQL() {
   const base = useBase();
-  const apiKey = globalConfig.get('apiKey');
-  const [isShowingSettings, setIsShowingSettings] = useState(!apiKey);
+  const [isShowingSettings, setIsShowingSettings] = useState(true);
 
   useEffect(() => {
     sendMeta(base);

@@ -14,6 +14,7 @@
     "scripts": {
         "lint": "eslint frontend",
         "dev": "npx block run",
-        "release": "npx block release"
+        "release": "npx block release",
+        "submit": "npx block submit"
     }
 }

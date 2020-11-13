@@ -15,7 +15,7 @@ import {
 
 const Setup = ({ base, onLaunch }) => {
   const [apiKey, setAPIKey, canSetAPIKey] = useSynced('apiKey');
-  const [inputType, setInputType] = useState("text");
+  const [inputType, setInputType] = useState("password");
   const [iconType, setIconType] = useState("hide");
 
   const updateAPIkey = async (key) => {

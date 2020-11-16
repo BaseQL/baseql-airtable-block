@@ -1,8 +1,15 @@
 # BaseQL Airtable Block
 
-## Instructions
+## Airtable Pro
 
-### Prerequisites
+You can find us in the Airtable Marketplace:
+
+[<img width="112" alt="Screen Shot 2020-11-16 at 15 49 31" src="https://user-images.githubusercontent.com/119117/99312204-516d0e00-2823-11eb-8e48-a6161356108d.png">](https://airtable.com/marketplace/blkJ16czOGRAFvBFg/baseql)
+
+https://airtable.com/marketplace/blkJ16czOGRAFvBFg/baseql
+
+
+## Custom Blocks Beta
 
 In order to use Custom Blocks you need to [Sign Up for the Beta](https://airtable.com/shrEvq5IlQqYxWkaS) which applies for individual accounts, not organization's.
 

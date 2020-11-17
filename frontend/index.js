@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { initializeBlock, useBase, useSettingsButton, Box } from "@airtable/blocks/ui";
-import {globalConfig} from '@airtable/blocks';
 import {} from '@airtable/blocks/ui';
 import Setup from "./setup";
 import EmbedExplorer from "./embedexplorer";

@@ -1,4 +1,6 @@
-# BaseQL Airtable Block
+# BaseQL Airtable App
+
+See full docs at: https://docs.baseql.com
 
 ## Airtable Pro
 

@@ -7,6 +7,9 @@ import {
   Button,
   Heading,
   TextButton,
+  Box,
+  Text,
+  Icon,
 } from "@airtable/blocks/ui";
 import {
   BACKEND_HOST,
@@ -107,10 +110,31 @@ const Setup = ({ base, onLaunch }) => {
           size="large"
           disabled={!apiKey}
           style={{ marginLeft: "8px" }}
+          backgroundColor="purple"
         >
           🚀 Open in BaseQL
         </Button>
       </div>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        border="thick"
+        backgroundColor="purpleLight2"
+        borderRadius="large"
+        padding={2}
+        margin={4}
+        overflow="hidden"
+      >
+        <Text>
+          When <Link href={`${APP_HOST}/airtable/${base.id}`}><b>signing up</b></Link> to BaseQL you can enable:
+          <ul style={{listStyleType: "none"}}>
+            <li><Icon name="cube" size={12} /> <Link href="https://docs.baseql.com/usage/explorer" target="_blank">Advanced GraphiQL Explorer</Link></li>
+            <li><Icon name="lock" size={12} /> <Link href="https://docs.baseql.com/usage/settings" target="_blank">Secret Token Authentication</Link></li>
+            <li><Icon name="edit" size={12} /> <Link href="https://docs.baseql.com/usage/mutations" target="_blank">Mutations (create, update, delete)</Link></li>
+          </ul>
+        </Text>
+      </Box>
       <div style={{marginBottom: "20px", marginTop: "30px", textAlign: "center"}}>
         <TextButton icon="help">
           <Link

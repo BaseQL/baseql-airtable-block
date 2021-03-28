@@ -56,7 +56,7 @@ function BaseQL() {
   });
 
   return (
-    <Box border="none" backgroundColor="white" padding="0" overflow="hidden" style={{ height: '100vh', width: '100vw' }} >
+    <Box border="none" backgroundColor="white" padding="0" overflow="hidden" style={{ height: '120vh', width: '100vw' }} >
       {isShowingSettings
         && <Setup base={base} onLaunch={() => setIsShowingSettings(!isShowingSettings)} /> 
         || <EmbedExplorer base={base} />}

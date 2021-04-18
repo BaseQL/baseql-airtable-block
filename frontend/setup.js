@@ -127,7 +127,7 @@ const Setup = ({ base, onLaunch }) => {
         overflow="hidden"
       >
         <Text>
-          When <Link href={`${APP_HOST}/airtable/${base.id}`}><b>signing up</b></Link> to BaseQL you can enable:
+          When <Link href={`${APP_HOST}/airtable/${base.id}`} target="_blank"><b>signing up</b></Link> to BaseQL you can enable:
           <ul style={{listStyleType: "none"}}>
             <li><Icon name="cube" size={12} /> <Link href="https://docs.baseql.com/usage/explorer" target="_blank">Advanced GraphiQL Explorer</Link></li>
             <li><Icon name="lock" size={12} /> <Link href="https://docs.baseql.com/usage/settings" target="_blank">Secret Token Authentication</Link></li>

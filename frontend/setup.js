@@ -54,7 +54,7 @@ const Setup = ({ base, onLaunch }) => {
       {/* <FormField label="Base:">
         <Input value={base.name} size="large" enabled="false" />
       </FormField> */}
-      <FormField label="API Key:">
+      <FormField label="Personal access token:">
         <div style={{ display: "flex" }}>
           <Input
             type={inputType}
@@ -77,18 +77,18 @@ const Setup = ({ base, onLaunch }) => {
       </FormField>
         <div
           style={{
-            textAlign: "right",
+            textAlign: "center",
             right: "20px",
             width: "100%",
             marginBottom: "20px",
           }}
         >
           <Link
-            href={`https://airtable.com/account`}
+            href={`https://airtable.com/create/tokens`}
             target="_blank"
             size="medium"
           >
-            Where can I find my API key?
+            Click here to create your personal access token
           </Link>
         </div>
       <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -136,6 +136,16 @@ const Setup = ({ base, onLaunch }) => {
         </Text>
       </Box>
       <div style={{marginBottom: "20px", marginTop: "30px", textAlign: "center"}}>
+        <TextButton icon="file">
+          <Link
+            href={`https://docs.baseql.com/`}
+            target="_blank"
+            size="medium"
+          >
+            Docs
+          </Link>
+        </TextButton>
+        &nbsp;&nbsp;&nbsp;
         <TextButton icon="help">
           <Link
             href={`mailto:support@baseql.com`}

@@ -152,7 +152,7 @@ const Setup = ({ base, onLaunch }) => {
             target="_blank"
             size="medium"
           >
-            support@baseql.com
+            Support
           </Link>
         </TextButton>
         &nbsp;&nbsp;&nbsp;

@@ -35,6 +35,8 @@ const EmbedExplorer = ({ base, onExit }) => {
       });
   }, [base.id]);
 
+  // Legacy `align` attribute kept as-is to avoid a layout change; flagged by newer eslint-plugin-react.
+  // eslint-disable-next-line react/no-unknown-property
   return <div align="center">
     <Tooltip
       content="Copy API URL to Clipboard"
